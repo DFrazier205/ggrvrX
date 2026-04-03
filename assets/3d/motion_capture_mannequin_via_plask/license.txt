@@ -1,0 +1,11 @@
+Model Information:
+* title:	Motion Capture Mannequin via Plask
+* source:	https://sketchfab.com/3d-models/motion-capture-mannequin-via-plask-fd8df3d3442f43099b46417302dc9fe0
+* author:	stevencmutter (https://sketchfab.com/stevencmutter)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Motion Capture Mannequin via Plask" (https://sketchfab.com/3d-models/motion-capture-mannequin-via-plask-fd8df3d3442f43099b46417302dc9fe0) by stevencmutter (https://sketchfab.com/stevencmutter) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
