@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Experience Go-Go music in immersive 360° VR. Live performances from Rare Essence, TCB, Backyard Band and more — Washington D.C.'s iconic music scene.">
 <meta name="theme-color" content="#0d0710">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta property="og:title" content="Go-Go Royalty VR — Experience Go-Go in 360°">
 <meta property="og:description" content="Immersive 360° VR performances from D.C.'s most iconic Go-Go bands.">
 <meta property="og:type" content="website">
@@ -18,10 +17,10 @@
 <!-- Non-blocking font load: media="print" loads async, onload flips to all -->
 <!-- Only the exact weights used are requested — no unused 400wt Space Grotesk -->
 <link rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee&family=Space+Grotesk:wght@300;500;700&family=DM+Mono&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;500;700&family=DM+Mono&display=swap"
   media="print" onload="this.media='all'">
 <noscript>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee&family=Space+Grotesk:wght@300;500;700&family=DM+Mono&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;500;700&family=DM+Mono&display=swap">
 </noscript>
 
 <style>
@@ -50,8 +49,7 @@ body{
   text-rendering:optimizeSpeed;
 }
 img,video{display:block;max-width:100%}
-a,button{cursor:pointer}
-@media(hover:hover) and (pointer:fine){a,button{cursor:none}}
+a,button{cursor:none}
 button{font:inherit;border:none;background:none}
 
 /* === CURSOR === */
@@ -137,30 +135,14 @@ nav.scrolled{
   color:var(--accent);margin-bottom:1.5rem;
   opacity:0;animation:fadeUp .8s .2s ease forwards;
 }
-@keyframes heroRise{
-  from{transform:translateY(110%);opacity:0}
-  to{transform:translateY(0);opacity:1}
-}
 .hero-title{
-  font-family:'Bungee',sans-serif;font-size:clamp(3.4rem,6.5vw,9rem);
-  line-height:.88;letter-spacing:.02em;color:var(--white);text-align:left;
+  font-family:var(--f-d);font-size:clamp(3.2rem,6vw,8rem);
+  line-height:.9;letter-spacing:.05em;color:var(--white);text-align:left;
+  opacity:0;animation:fadeUp .9s .35s ease forwards;
 }
-.hero-title-line{
-  display:block;overflow:hidden;padding-bottom:.08em;
-}
-.hero-title-word{
-  display:block;
-  transform:translateY(110%);opacity:0;
-  animation:heroRise 1.5s cubic-bezier(0.16,1,0.3,1) forwards;
-  text-shadow:0 0 40px var(--accent-glow),4px 4px 0 rgba(0,0,0,.6);
-}
-.hero-title .line-1 .hero-title-word{animation-delay:.3s}
-.hero-title .line-2 .hero-title-word{
-  color:var(--accent);animation-delay:.55s;
-  text-shadow:0 0 60px var(--accent-glow),4px 4px 0 rgba(0,0,0,.6);
-}
+.hero-title em{font-style:normal;color:var(--accent);display:block}
 .hero-sub{
-  margin-top:1.8rem;font-size:clamp(1rem,1.6vw,1.25rem);
+  margin-top:1.8rem;font-size:clamp(.85rem,1.3vw,1rem);
   font-weight:300;color:var(--muted);max-width:420px;line-height:1.7;
   opacity:0;animation:fadeUp .9s .55s ease forwards;
 }
@@ -171,7 +153,6 @@ nav.scrolled{
 /* RIGHT — 3D container */
 .hero-3d{
   position:relative;z-index:2;
-  padding-top:4rem;
   /* Explicit size — critical for canvas measurement */
   width:100%;
   height:100vh;
@@ -238,8 +219,8 @@ nav.scrolled{
 .marquee-wrap{
   overflow:hidden;
   border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  padding:1rem 0;background:rgba(180,92,253,.04);
-  contain:layout style paint;
+  padding:.9rem 0;background:rgba(180,92,253,.04);
+  contain:strict;
 }
 .marquee-track{
   display:flex;gap:3rem;white-space:nowrap;width:max-content;
@@ -290,7 +271,7 @@ section{position:relative}
 .exp-card-tag{font-family:var(--f-m);font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
 .exp-card-tag::before{content:'';width:20px;height:1px;background:var(--accent)}
 .exp-card-title{font-family:var(--f-d);font-size:1.5rem;letter-spacing:.05em;line-height:1.1;color:var(--white);margin-bottom:.7rem}
-.exp-card-desc{font-size:.92rem;line-height:1.6;color:var(--muted);max-height:0;overflow:hidden;opacity:0;transition:max-height .5s ease,opacity .4s ease}
+.exp-card-desc{font-size:.78rem;line-height:1.6;color:var(--muted);max-height:0;overflow:hidden;opacity:0;transition:max-height .5s ease,opacity .4s ease}
 .exp-card:hover .exp-card-desc{max-height:200px;opacity:1}
 .exp-card-cta{
   margin-top:1rem;display:inline-flex;align-items:center;gap:.5rem;
@@ -332,16 +313,13 @@ section{position:relative}
 .stream-card{
   background:var(--black);padding:3rem 2.5rem;position:relative;overflow:hidden;
   display:flex;flex-direction:column;transition:background .3s;contain:layout style;
-  color:var(--white) !important;text-decoration:none !important;
 }
-a.stream-card,a.stream-card:visited,a.stream-card:hover{color:var(--white) !important;text-decoration:none !important}
 .stream-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
 .stream-card:hover::before{transform:scaleX(1)}
 .stream-card:hover{background:rgba(180,92,253,.04)}
 .stream-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.8rem}
-.stream-icon{width:2.4rem;height:2.4rem;color:var(--accent);flex-shrink:0}
-.stream-icon svg{width:100%;height:100%;display:block}
-.stream-name{font-family:var(--f-d);font-size:2.2rem;letter-spacing:.06em;margin-bottom:.9rem;color:var(--white)}
+.stream-icon{font-size:2.2rem;line-height:1}
+.stream-name{font-family:var(--f-d);font-size:2.2rem;letter-spacing:.06em;margin-bottom:.9rem}
 .stream-desc{font-size:.83rem;line-height:1.75;color:var(--muted);margin-bottom:1.8rem;flex:1}
 .stream-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--f-m);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);border:1px solid var(--border);padding:.3rem .9rem;flex-shrink:0}
 .stream-badge::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;animation:blink 1.4s infinite}
@@ -390,93 +368,18 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
   .contact-inner{grid-template-columns:1fr;gap:4rem}
   .stream-cta-banner{grid-template-columns:1fr;gap:2.5rem}
 }
-/* === HAMBURGER === */
-.nav-hamburger{
-  display:none;flex-direction:column;justify-content:center;gap:5px;
-  background:none;border:none;padding:.5rem;cursor:pointer;
-  min-width:44px;min-height:44px;align-items:center;
-}
-.nav-hamburger span{
-  display:block;width:22px;height:1.5px;background:var(--white);
-  transition:transform .3s,opacity .3s;transform-origin:center;
-}
-.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-.nav-hamburger.open span:nth-child(2){opacity:0}
-.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-
-/* Mobile drawer */
-.nav-drawer{
-  display:none;position:fixed;inset:0;top:0;z-index:199;
-  background:rgba(13,7,16,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;
-}
-.nav-drawer.open{display:flex}
-.nav-drawer a{
-  font-family:var(--f-d);font-size:2.5rem;letter-spacing:.1em;color:var(--white);
-  text-decoration:none;transition:color .2s;
-}
-.nav-drawer a:hover{color:var(--accent)}
-
 @media(max-width:768px){
-  /* Nav */
   nav{padding:1.2rem 1.5rem}
-  .nav-links,.nav-cta{display:none}
-  .nav-hamburger{display:flex}
-
-  /* Hero — single column, comfortable padding */
-  #hero{grid-template-columns:1fr;padding:0 1.5rem;min-height:100svh;align-items:flex-start}
-  .hero-content{align-items:flex-start;padding:6rem 0 2rem;text-align:left}
-  .hero-title{font-size:clamp(3rem,14vw,5rem)}
-  .hero-sub{font-size:1rem;max-width:100%}
-  .hero-actions{flex-direction:column;align-items:flex-start;width:100%}
-  .hero-actions .btn-primary,.hero-actions .btn-ghost{width:100%;text-align:center;justify-content:center}
-  .hero-scroll{display:none}
-
-  /* Disable heavy 3D on mobile */
-  .hero-3d{display:none}
-  .how-visual{display:none}
-  #how-loader{display:none !important}
-
-  /* Sections */
-  #experiences,#how,#streaming,#contact{padding:4rem 1.5rem}
+  .nav-links{display:none}
+  #experiences,#how,#streaming,#contact{padding:5rem 1.5rem}
   #experiences{max-width:100%}
-  .exp-header{flex-direction:column;align-items:flex-start;gap:1rem}
-  .exp-header .btn-ghost{width:100%;text-align:center;justify-content:center}
-
-  /* Cards — single column */
-  .exp-grid{grid-template-columns:1fr;gap:1px}
-  .exp-card{aspect-ratio:4/3}
-  .exp-card.featured{grid-column:span 1;min-height:280px;aspect-ratio:4/3}
-  .exp-card-title{font-size:1.3rem}
-  /* Always show desc and cta on mobile (no hover) */
-  .exp-card-desc{max-height:none;opacity:1}
-  .exp-card-cta{opacity:1;transform:none}
-
-  /* How it works */
-  .how-inner{grid-template-columns:1fr;gap:2rem}
-  .how-steps{gap:1.8rem}
-
-  /* Streaming */
+  .exp-grid{grid-template-columns:1fr}
+  .exp-card.featured{grid-column:span 1}
   .stream-grid{grid-template-columns:1fr}
-  .stream-cta-banner{padding:2.5rem 1.5rem;grid-template-columns:1fr;gap:2rem}
-  .stream-cta-action{align-items:stretch}
-  .stream-cta-action .btn-primary{text-align:center;justify-content:center}
-
-  /* Contact */
-  .contact-inner{grid-template-columns:1fr;gap:3rem}
-  .contact-info p{max-width:100%}
-
-  /* Form */
-  .form-input,.form-textarea{font-size:16px} /* prevent iOS zoom */
-  .form-submit{width:100%;text-align:center}
-
-  /* Footer */
-  footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 1.5rem}
-  .footer-socials{justify-content:center}
-
-  /* Touch targets */
-  .btn-primary,.btn-ghost{min-height:48px;display:inline-flex;align-items:center;justify-content:center}
-  .nav-cta,.stream-link,.contact-link{min-height:44px}
+  .stream-cta-banner{padding:2.5rem 1.5rem}
+  footer{flex-direction:column;gap:1.5rem;text-align:center}
+  .exp-header{flex-direction:column;align-items:flex-start;gap:1rem}
+  .hero-actions{flex-direction:column;align-items:center}
 }
 
 /* === REDUCED MOTION — respect user system preference === */
@@ -505,18 +408,6 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="https://go-goroyalty.com" class="nav-cta" target="_blank" rel="noopener noreferrer">Go-Go Royalty &#8594;</a>
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- MOBILE DRAWER -->
-<nav class="nav-drawer" id="nav-drawer" aria-label="Mobile navigation">
-  <a href="#experiences" class="drawer-link">Experiences</a>
-  <a href="#how" class="drawer-link">How It Works</a>
-  <a href="#streaming" class="drawer-link">Stream</a>
-  <a href="#contact" class="drawer-link">Contact</a>
-  <a href="https://go-goroyalty.com" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">Go-Go Royalty &#8594;</a>
 </nav>
 
 <!-- HERO -->
@@ -532,10 +423,7 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
   <!-- LEFT: text -->
   <div class="hero-content">
     <p class="hero-eyebrow">Washington D.C. &middot; Go-Go Culture &middot; 360&deg; Immersion</p>
-    <h1 class="hero-title">
-      <span class="hero-title-line line-1"><span class="hero-title-word">GO-GO</span></span>
-      <span class="hero-title-line line-2"><span class="hero-title-word">ROYALTY VR</span></span>
-    </h1>
+    <h1 class="hero-title">GO-GO<em>ROYALTY VR</em></h1>
     <p class="hero-sub">Dive into the pulsating heart of D.C.&#8217;s iconic music scene. Live performances, legendary bands, raw energy &#8212; in full 360&deg; virtual reality.</p>
     <div class="hero-actions">
       <a href="#experiences" class="btn-primary">Watch Experiences</a>
@@ -565,7 +453,7 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
     <span class="marquee-item">BACKYARD BAND <span>&middot;</span></span>
     <span class="marquee-item">TCB <span>&middot;</span></span>
     <span class="marquee-item">JUNKYARD BAND <span>&middot;</span></span>
-    <span class="marquee-item">NEG <span>&middot;</span></span>
+    <span class="marquee-item">SWEAT BAND <span>&middot;</span></span>
     <span class="marquee-item">BOUNCEBEAT KINGS <span>&middot;</span></span>
     <span class="marquee-item">CAPITAL ONE ARENA <span>&middot;</span></span>
     <span class="marquee-item">CHUCK BROWN PARK <span>&middot;</span></span>
@@ -575,7 +463,7 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
     <span class="marquee-item">BACKYARD BAND <span>&middot;</span></span>
     <span class="marquee-item">TCB <span>&middot;</span></span>
     <span class="marquee-item">JUNKYARD BAND <span>&middot;</span></span>
-    <span class="marquee-item">NEG <span>&middot;</span></span>
+    <span class="marquee-item">SWEAT BAND <span>&middot;</span></span>
     <span class="marquee-item">BOUNCEBEAT KINGS <span>&middot;</span></span>
     <span class="marquee-item">CAPITAL ONE ARENA <span>&middot;</span></span>
     <span class="marquee-item">CHUCK BROWN PARK <span>&middot;</span></span>
@@ -591,7 +479,7 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
       <p class="section-label">360&deg; Experiences</p>
       <h2 class="section-title" id="exp-heading">Live. Uncut.<br>Unforgettable.</h2>
     </div>
-    <a href="https://www.youtube.com/@go-goroyaltyvr7075" class="btn-ghost" style="flex-shrink:0"
+    <a href="https://www.youtube.com/@GoGoRoyaltyVR" class="btn-ghost" style="flex-shrink:0"
        target="_blank" rel="noopener noreferrer">View All on YouTube &#8594;</a>
   </div>
 
@@ -616,55 +504,90 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
     <!-- 02 — loading=lazy: below fold on most viewports -->
     <article class="exp-card">
       <img class="exp-card-img"
-        src="https://www.dropbox.com/scl/fi/x26jnbppd978eksvprm9c/RE-GGVR.png?rlkey=jrgpjz9x6qgz2zeionbzc6yre&st=aytch18p&raw=1"
-        alt="Rare Essence — Go-Go Mickey live at Chuck Brown Park"
+        src="https://go-goroyaltyvr.com/wp-content/uploads/brizy/imgs/GGR_LogoEmblem_Color-T-360x360x0x0x360x360x1704658092.png"
+        alt="Rare Essence performing live at Chuck Brown Park"
         width="360" height="360"
         loading="lazy" decoding="async"
-        style="object-fit:cover;object-position:35% center">
-      <a class="exp-card-link" href="https://youtu.be/q7kwfxjzA0Q?si=ftMHKiEkKShf3M05" target="_blank" rel="noopener noreferrer" aria-label="Watch experience on YouTube"></a>
+        style="object-fit:contain;padding:20%;background:#120a18">
+      <a class="exp-card-link" href="#" aria-label="Watch experience on YouTube"></a>
       <div class="exp-card-overlay">
         <span class="exp-card-num" aria-hidden="true">02 / 07</span>
         <span class="exp-card-tag">Chuck Brown Park</span>
         <h3 class="exp-card-title">Rare Essence &#8212; Go-Go Mickey</h3>
         <p class="exp-card-desc">Go-Go Mickey on congas. James Funk on vocals. Chuck Brown Park alive with the pulse of D.C.</p>
-        <a href="https://youtu.be/q7kwfxjzA0Q?si=ftMHKiEkKShf3M05" class="exp-card-cta" target="_blank" rel="noopener noreferrer">Watch Experience</a>
+        <a href="#" class="exp-card-cta">Watch Experience</a>
       </div>
     </article>
 
     <article class="exp-card">
-      <img class="exp-card-img"
-        src="https://www.dropbox.com/scl/fi/14ce1wfmawggr7a6cz7ji/BYB-GGR-VR.jpg?rlkey=mvw5sxmaoiv0890re7ve1bpa8&st=u3e1znpc&raw=1"
-        alt="Backyard Band performing live at Capital One Arena"
-        width="360" height="360"
-        loading="lazy" decoding="async"
-        style="object-fit:cover">
-      <a class="exp-card-link" href="https://youtu.be/Czd7g1wys_4?si=24TEj-bPyV-9bmM8" target="_blank" rel="noopener noreferrer" aria-label="Watch experience on YouTube"></a>
+      <div class="card-bg" style="background:linear-gradient(135deg,#0e0814,#1a0f24)" aria-hidden="true">
+        <span class="card-bg-lbl" style="font-size:4rem">BYB</span>
+      </div>
+      <a class="exp-card-link" href="#" aria-label="Watch experience on YouTube"></a>
       <div class="exp-card-overlay">
         <span class="exp-card-num" aria-hidden="true">03 / 07</span>
         <span class="exp-card-tag">Capital One Arena</span>
         <h3 class="exp-card-title">Backyard Band &#8212; On the Court</h3>
         <p class="exp-card-desc">Where basketball legends are made, Backyard Band transforms the court into a Go-Go stage.</p>
-        <a href="https://youtu.be/Czd7g1wys_4?si=24TEj-bPyV-9bmM8" class="exp-card-cta" target="_blank" rel="noopener noreferrer">Watch Experience</a>
+        <a href="#" class="exp-card-cta">Watch Experience</a>
+      </div>
+    </article>
+
+    <article class="exp-card">
+      <div class="card-bg" style="background:linear-gradient(135deg,#130a1c,#1e1028)" aria-hidden="true">
+        <span class="card-bg-lbl" style="font-size:3.5rem">JYB</span>
+      </div>
+      <a class="exp-card-link" href="#" aria-label="Watch experience on YouTube"></a>
+      <div class="exp-card-overlay">
+        <span class="exp-card-num" aria-hidden="true">04 / 07</span>
+        <span class="exp-card-tag">All-White Party</span>
+        <h3 class="exp-card-title">Junkyard Band &#8212; Buggs Leads</h3>
+        <p class="exp-card-desc">Stars overhead, all-white crowd below, and Buggs commanding every soul in attendance.</p>
+        <a href="#" class="exp-card-cta">Watch Experience</a>
+      </div>
+    </article>
+
+    <article class="exp-card">
+      <div class="card-bg" style="background:linear-gradient(135deg,#0a0814,#10081c)" aria-hidden="true">
+        <span class="card-bg-lbl" style="font-size:3rem">TCB</span>
+      </div>
+      <a class="exp-card-link" href="#" aria-label="Watch experience on YouTube"></a>
+      <div class="exp-card-overlay">
+        <span class="exp-card-num" aria-hidden="true">05 / 07</span>
+        <span class="exp-card-tag">Power Nightclub</span>
+        <h3 class="exp-card-title">TCB &#8212; Neon Nights</h3>
+        <p class="exp-card-desc">Neon walls, bass that hits your chest, TCB commanding the Power nightclub floor.</p>
+        <a href="#" class="exp-card-cta">Watch Experience</a>
+      </div>
+    </article>
+
+    <article class="exp-card">
+      <div class="card-bg" style="background:linear-gradient(135deg,#110a18,#1a1020)" aria-hidden="true">
+        <span class="card-bg-lbl" style="font-size:2.5rem">RE</span>
+      </div>
+      <a class="exp-card-link" href="#" aria-label="Watch experience on YouTube"></a>
+      <div class="exp-card-overlay">
+        <span class="exp-card-num" aria-hidden="true">06 / 07</span>
+        <span class="exp-card-tag">Fast Eddie&#8217;s</span>
+        <h3 class="exp-card-title">Rare Essence &#8212; Killa Cal</h3>
+        <p class="exp-card-desc">&#8220;Can&#8217;t Run From the Crank&#8221; &#8212; Killa Cal and Smoke in an intimate, electric Fast Eddie&#8217;s set.</p>
+        <a href="#" class="exp-card-cta">Watch Experience</a>
       </div>
     </article>
 
     <article class="exp-card featured">
-      <img class="exp-card-img"
-        src="https://www.dropbox.com/scl/fi/3ht2bmtuo1k6r2awus127/JY-GGR-VR.png?rlkey=61v84h0q9ngxuycm1a4dqsn8d&st=xqsie376&raw=1"
-        alt="Junkyard Band — Buggs Leads at the All-White Party"
-        width="740" height="416"
-        loading="lazy" decoding="async"
-        style="object-fit:cover">
-      <a class="exp-card-link" href="https://youtu.be/yy_NMqNQKeQ?si=fxw8mbL9dCK1N1dk" target="_blank" rel="noopener noreferrer" aria-label="Watch experience on YouTube"></a>
+      <div class="card-bg" style="background:linear-gradient(135deg,#0d0814,#181020)" aria-hidden="true">
+        <span class="card-bg-lbl" style="font-size:5rem">SB</span>
+      </div>
+      <a class="exp-card-link" href="#" aria-label="Watch experience on YouTube"></a>
       <div class="exp-card-overlay">
-        <span class="exp-card-num" aria-hidden="true">04 / 06</span>
-        <span class="exp-card-tag">All-White Party</span>
-        <h3 class="exp-card-title">Junkyard Band &#8212; All White Party</h3>
-        <p class="exp-card-desc">Sun overhead, all-white dressed crowd below, and JY controlling every soul in attendance.</p>
-        <a href="https://youtu.be/yy_NMqNQKeQ?si=fxw8mbL9dCK1N1dk" class="exp-card-cta" target="_blank" rel="noopener noreferrer">Watch Experience</a>
+        <span class="exp-card-num" aria-hidden="true">07 / 07</span>
+        <span class="exp-card-tag">Lounge 66 &#8212; Meek&#8217;s</span>
+        <h3 class="exp-card-title">Sweat Band feat. Slick Rick &#8212; A Legacy Performance</h3>
+        <p class="exp-card-desc">Rocksteady on congas, Slick Rick&#8217;s vocals resonating &#8212; a poignant tribute to a talent taken too soon. This is Go-Go history, preserved in 360&deg;.</p>
+        <a href="#" class="exp-card-cta">Watch Experience</a>
       </div>
     </article>
-
   </div>
 </section>
 
@@ -672,8 +595,8 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
 <section id="how" aria-labelledby="how-heading">
   <div class="how-inner">
     <div>
-      <p class="section-label">Getting Started</p>
-      <h2 class="section-title" id="how-heading">Go-Go, Your<br>Way.</h2>
+      <p class="section-label reveal">Getting Started</p>
+      <h2 class="section-title reveal" id="how-heading">Go-Go, Your<br>Way.</h2>
       <div class="how-steps">
         <div class="how-step">
           <div class="step-num" aria-hidden="true">01</div>
@@ -699,11 +622,13 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
       </div>
     </div>
     <div class="how-visual" aria-hidden="true">
-      <div class="vr-mockup" style="position:relative;overflow:hidden">
-        <canvas id="how-canvas" style="width:100%;height:100%;display:block"></canvas>
-        <div id="how-loader" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem">
-          <div class="hero-3d-loader-ring"></div>
-          <span class="hero-3d-loader-text">Loading 3D</span>
+      <div class="vr-mockup">
+        <div class="vr-ring"></div>
+        <div class="vr-ring"></div>
+        <div class="vr-ring"></div>
+        <div class="vr-icon-wrap">
+          <div class="vr-icon">&#x1F97D;</div>
+          <div class="vr-icon-label">360&deg; VR</div>
         </div>
       </div>
     </div>
@@ -718,48 +643,42 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
       <h2 class="section-title" id="stream-heading">Stream the Culture.<br>24 / 7.</h2>
     </div>
     <div class="stream-grid">
-      <a class="stream-card reveal" href="https://go-goroyalty.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
+      <div class="stream-card reveal">
         <div class="stream-card-top">
-          <div class="stream-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.66 11.2c-.23-.3-.51-.56-.77-.82-.67-.6-1.43-1.03-2.07-1.66C13.33 7.26 13 4.85 13.95 3c-.95.23-1.78.75-2.49 1.32-2.59 2.08-3.61 5.75-2.39 8.9.04.1.08.2.08.33 0 .22-.15.42-.35.5-.23.1-.47.04-.66-.12a.58.58 0 0 1-.14-.17c-1.13-1.43-1.31-3.48-.55-5.12C5.78 10 4.87 12.3 5 14.47c.06.5.12 1 .29 1.5.14.6.41 1.2.71 1.73 1.08 1.73 2.95 2.97 4.96 3.22 2.14.27 4.43-.12 6.07-1.6 1.83-1.66 2.47-4.32 1.53-6.6l-.13-.26c-.21-.46-.77-1.26-.77-1.26m-3.16 6.3c-.28.24-.74.5-1.1.6-1.12.4-2.24-.16-2.9-.82 1.19-.28 1.9-1.16 2.11-2.05.17-.8-.15-1.46-.28-2.23-.12-.74-.1-1.37.17-2.06.19.38.39.76.63 1.06.77 1 1.98 1.44 2.24 2.8.04.14.06.28.06.43.03.82-.33 1.72-.93 2.27z"/></svg>
-          </div>
+          <div class="stream-icon" aria-hidden="true">&#x1F525;</div>
           <span class="stream-badge">Live Now</span>
         </div>
         <div class="stream-name">Today&#8217;s Go-Go</div>
         <p class="stream-desc">The latest sounds from the scene &#8212; live sets, fresh drops, and the artists shaping Go-Go&#8217;s next chapter right now.</p>
-        <span class="stream-link">Start Listening &#8594;</span>
-      </a>
-      <a class="stream-card reveal" href="https://go-goroyalty.com" target="_blank" rel="noopener noreferrer" style="transition-delay:.12s;text-decoration:none">
+        <a href="https://go-goroyalty.com" class="stream-link" target="_blank" rel="noopener noreferrer">Start Listening &#8594;</a>
+      </div>
+      <div class="stream-card reveal" style="transition-delay:.12s">
         <div class="stream-card-top">
-          <div class="stream-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-          </div>
+          <div class="stream-icon" aria-hidden="true">&#x1F3B5;</div>
           <span class="stream-badge">24 / 7</span>
         </div>
         <div class="stream-name">Vintage</div>
         <p class="stream-desc">A vault of nostalgia. Legendary performances from the 70s through the early 2000s &#8212; the deep roots of the Go-Go pulse.</p>
-        <span class="stream-link">Explore Vintage &#8594;</span>
-      </a>
-      <a class="stream-card reveal" href="https://go-goroyalty.com" target="_blank" rel="noopener noreferrer" style="transition-delay:.24s;text-decoration:none">
+        <a href="https://go-goroyalty.com" class="stream-link" target="_blank" rel="noopener noreferrer">Explore Vintage &#8594;</a>
+      </div>
+      <div class="stream-card reveal" style="transition-delay:.24s">
         <div class="stream-card-top">
-          <div class="stream-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
-          </div>
+          <div class="stream-icon" aria-hidden="true">&#x26A1;</div>
           <span class="stream-badge">24 / 7</span>
         </div>
         <div class="stream-name">Bouncebeat</div>
         <p class="stream-desc">The new age of Go-Go. Innovative, forward-thinking sounds pioneered in D.C. &#8212; the subgenre redefining what Go-Go can become.</p>
-        <span class="stream-link">Feel the Bounce &#8594;</span>
-      </a>
+        <a href="https://go-goroyalty.com" class="stream-link" target="_blank" rel="noopener noreferrer">Feel the Bounce &#8594;</a>
+      </div>
     </div>
     <div class="stream-cta-banner reveal">
       <div class="stream-cta-text">
         <p class="section-label" style="margin-bottom:.6rem">Go-Go Royalty &#8212; All Access</p>
         <h3 class="stream-cta-heading">One Platform. Every Era.<br>The Entire Culture.</h3>
-        <p class="stream-cta-sub">From rare vintage performances of pioneering acts to live shows of contemporary stars &#8212; your digital chronicle of D.C.&#8217;s most iconic music scene, available anywhere, anytime.</p>
+        <p class="stream-cta-sub">From rare vintage footage of pioneering acts to live shows of contemporary stars &#8212; your digital chronicle of D.C.&#8217;s most iconic music scene, available anywhere, anytime.</p>
       </div>
-      <div class="stream-cta-action" style="align-items:center">
-        <a href="https://go-goroyalty.com/all-access-sign-up" class="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up for All-Access &#8594;</a>
+      <div class="stream-cta-action">
+        <a href="https://go-goroyalty.com" class="btn-primary" target="_blank" rel="noopener noreferrer">Sign Up &amp; Stream Free &#8594;</a>
         <p class="stream-cta-note">All devices &middot; No headset required</p>
       </div>
     </div>
@@ -790,7 +709,7 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
         </a>
       </div>
     </div>
-    <form class="contact-form reveal" style="transition-delay:.15s" id="contact-form" novalidate>
+    <form class="contact-form reveal" style="transition-delay:.15s" onsubmit="return false;" novalidate>
       <div class="form-group">
         <label class="form-label" for="f-name">Your Name</label>
         <input id="f-name" class="form-input" type="text" placeholder="Full name" autocomplete="name">
@@ -800,60 +719,11 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
         <input id="f-email" class="form-input" type="email" placeholder="your@email.com" autocomplete="email">
       </div>
       <div class="form-group">
-        <label class="form-label" for="f-subject">Subject</label>
-        <input id="f-subject" class="form-input" type="text" placeholder="Subject">
-      </div>
-      <div class="form-group">
         <label class="form-label" for="f-msg">Message</label>
         <textarea id="f-msg" class="form-textarea" placeholder="Tell us about your inquiry&#8230;"></textarea>
       </div>
-      <button type="submit" class="form-submit" id="form-btn">Send Message</button>
-      <p id="form-msg" style="display:none;font-family:var(--f-m);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;margin-top:.8rem"></p>
+      <button type="submit" class="form-submit">Send Message</button>
     </form>
-    <script>
-      document.getElementById('contact-form').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const btn  = document.getElementById('form-btn');
-        const msg  = document.getElementById('form-msg');
-        const form = document.getElementById('contact-form');
-        btn.textContent = 'Sending…';
-        btn.disabled = true;
-        msg.style.display = 'none';
-        try {
-          const res = await fetch('https://n8n.srv856673.hstgr.cloud/webhook/contact-form', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer mysite-form-token-2026-xK9p' },
-            body: JSON.stringify({
-              name: document.getElementById('f-name').value,
-              email: document.getElementById('f-email').value,
-              subject: document.getElementById('f-subject').value,
-              message: document.getElementById('f-msg').value
-            })
-          });
-          const data = await res.json().catch(() => ({}));
-          if(res.ok){
-            form.reset();
-            btn.textContent = 'Send Message';
-            btn.disabled = false;
-            msg.style.color = 'var(--accent)';
-            msg.textContent = data.message || 'Message received — we\'ll be in touch soon.';
-            msg.style.display = 'block';
-          } else {
-            btn.textContent = 'Send Message';
-            btn.disabled = false;
-            msg.style.color = '#e05c5c';
-            msg.textContent = data.message || 'Something went wrong. Please try again.';
-            msg.style.display = 'block';
-          }
-        } catch(err) {
-          btn.textContent = 'Send Message';
-          btn.disabled = false;
-          msg.style.color = '#e05c5c';
-          msg.textContent = 'Could not send message. Please check your connection.';
-          msg.style.display = 'block';
-        }
-      });
-    </script>
   </div>
 </section>
 
@@ -1040,115 +910,14 @@ import { RGBELoader }          from 'three/addons/loaders/RGBELoader.js';
 })();
 
 /* ════════════════════════════════
-   HOW IT WORKS — SCENE1 3D MODEL
-   ════════════════════════════════ */
-(function initHowScene(){
-  if(window.innerWidth <= 768) return;
-  const canvas = document.getElementById('how-canvas');
-  const loader = document.getElementById('how-loader');
-  if(!canvas) return;
-
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.2;
-  renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-  const scene  = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
-  camera.position.set(0, 0.5, 4.5);
-
-  scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-  const key = new THREE.DirectionalLight(0xb45cfd, 2.5);
-  key.position.set(-3, 5, 4);
-  scene.add(key);
-  const fill = new THREE.DirectionalLight(0x6622cc, 1.0);
-  fill.position.set(4, 2, -3);
-  scene.add(fill);
-
-  function resize(){
-    const w = canvas.parentElement.clientWidth;
-    const h = canvas.parentElement.clientHeight;
-    renderer.setSize(w, h, false);
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
-  }
-  resize();
-  window.addEventListener('resize', resize, { passive: true });
-
-  const gltfLoader = new GLTFLoader();
-  const draco = new DRACOLoader();
-  draco.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
-  gltfLoader.setDRACOLoader(draco);
-
-  let mixer;
-  const clock = new THREE.Clock();
-
-  gltfLoader.load(
-    'assets/3d/motion_capture_mannequin_via_plask/scene1.gltf',
-    function(gltf){
-      const model = gltf.scene;
-      // Center model
-      const box = new THREE.Box3().setFromObject(model);
-      const center = box.getCenter(new THREE.Vector3());
-      const size = box.getSize(new THREE.Vector3());
-      model.position.sub(center);
-      model.position.y -= size.y * 0.1;
-      const scale = 3.5 / Math.max(size.x, size.y, size.z);
-      model.scale.setScalar(scale);
-      scene.add(model);
-
-      if(gltf.animations && gltf.animations.length){
-        mixer = new THREE.AnimationMixer(model);
-        mixer.clipAction(gltf.animations[0]).play();
-      }
-
-      if(loader) loader.style.display = 'none';
-
-      (function animate(){
-        requestAnimationFrame(animate);
-        const delta = clock.getDelta();
-        if(mixer) mixer.update(delta);
-        model.rotation.y += 0.004;
-        renderer.render(scene, camera);
-      })();
-    },
-    null,
-    function(err){ console.warn('scene1 load error:', err); if(loader) loader.style.display = 'none'; }
-  );
-})();
-
-/* ════════════════════════════════
    SITE INTERACTIONS
    ════════════════════════════════ */
 (function initSite(){
   'use strict';
 
-  /* ── HAMBURGER ── */
-  var hamburger = document.getElementById('nav-hamburger');
-  var drawer    = document.getElementById('nav-drawer');
-  if(hamburger && drawer){
-    hamburger.addEventListener('click', function(){
-      var open = drawer.classList.toggle('open');
-      hamburger.classList.toggle('open', open);
-      hamburger.setAttribute('aria-expanded', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
-    drawer.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){
-        drawer.classList.remove('open');
-        hamburger.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
-    });
-  }
-
-  /* ── CURSOR (desktop only) ── */
-  var isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+  /* ── CURSOR ── */
   var cur  = document.getElementById('cur');
   var ring = document.getElementById('cur-ring');
-  if(isTouch && cur){ cur.style.display = 'none'; ring.style.display = 'none'; }
   var mx = window.innerWidth / 2;
   var my = window.innerHeight / 2;
   var rx = mx, ry = my;
@@ -1156,38 +925,36 @@ import { RGBELoader }          from 'three/addons/loaders/RGBELoader.js';
 
   function lerp(a, b, t){ return a + (b - a) * t; }
 
-  if(!isTouch){
-    function tick(){
-      raf = null;
-      cur.style.left  = mx + 'px';
-      cur.style.top   = my + 'px';
-      rx = lerp(rx, mx, 0.12);
-      ry = lerp(ry, my, 0.12);
-      ring.style.left = rx + 'px';
-      ring.style.top  = ry + 'px';
-      if(Math.abs(mx - rx) > 0.3 || Math.abs(my - ry) > 0.3){
-        raf = requestAnimationFrame(tick);
-      }
+  function tick(){
+    raf = null;
+    cur.style.left  = mx + 'px';
+    cur.style.top   = my + 'px';
+    rx = lerp(rx, mx, 0.12);
+    ry = lerp(ry, my, 0.12);
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    if(Math.abs(mx - rx) > 0.3 || Math.abs(my - ry) > 0.3){
+      raf = requestAnimationFrame(tick);
     }
-
-    document.addEventListener('mousemove', function(e){
-      mx = e.clientX; my = e.clientY;
-      if(!raf) raf = requestAnimationFrame(tick);
-    }, {passive: true});
-
-    document.querySelectorAll('a, button, .exp-card, .stream-card').forEach(function(el){
-      el.addEventListener('mouseenter', function(){
-        cur.style.transform  = 'translate(-50%,-50%) scale(2)';
-        cur.style.background = 'transparent';
-        cur.style.border     = '1.5px solid var(--accent)';
-      });
-      el.addEventListener('mouseleave', function(){
-        cur.style.transform  = 'translate(-50%,-50%) scale(1)';
-        cur.style.background = 'var(--accent)';
-        cur.style.border     = 'none';
-      });
-    });
   }
+
+  document.addEventListener('mousemove', function(e){
+    mx = e.clientX; my = e.clientY;
+    if(!raf) raf = requestAnimationFrame(tick);
+  }, {passive: true});
+
+  document.querySelectorAll('a, button, .exp-card, .stream-card').forEach(function(el){
+    el.addEventListener('mouseenter', function(){
+      cur.style.transform  = 'translate(-50%,-50%) scale(2)';
+      cur.style.background = 'transparent';
+      cur.style.border     = '1.5px solid var(--accent)';
+    });
+    el.addEventListener('mouseleave', function(){
+      cur.style.transform  = 'translate(-50%,-50%) scale(1)';
+      cur.style.background = 'var(--accent)';
+      cur.style.border     = 'none';
+    });
+  });
 
   /* ── NAV ── */
   var nav = document.getElementById('nav');
@@ -1229,80 +996,6 @@ import { RGBELoader }          from 'three/addons/loaders/RGBELoader.js';
   }
 
 })();
-</script>
-
-<!-- GSAP Parallax Text — desktop only, loaded dynamically -->
-<script>
-if(window.innerWidth > 768){
-  function loadGSAP(){
-    var s1 = document.createElement('script');
-    s1.src = 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js';
-    s1.onload = function(){
-      var s2 = document.createElement('script');
-      s2.src = 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js';
-      s2.onload = initParallax;
-      document.head.appendChild(s2);
-    };
-    document.head.appendChild(s1);
-  }
-  function initParallax(){
-gsap.registerPlugin(ScrollTrigger);
-
-// ── HERO TEXT — slow upward drift as user scrolls away from hero
-gsap.to('.hero-content', {
-  y: -100,
-  ease: 'none',
-  scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true }
-});
-
-// ── SECTION TITLES — hide initially, slide up + fade in, then drift on scroll
-gsap.utils.toArray('.section-title').forEach(el => {
-  gsap.set(el, { opacity: 0, y: 60 });
-  gsap.to(el, {
-    opacity: 1, y: 0,
-    duration: 1.1, ease: 'power3.out',
-    scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
-  });
-});
-
-// ── SECTION LABELS — hide initially, float up on enter
-gsap.utils.toArray('.section-label').forEach(el => {
-  gsap.set(el, { opacity: 0, y: 30 });
-  gsap.to(el, {
-    opacity: 1, y: 0,
-    duration: 0.9, ease: 'power2.out',
-    scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
-  });
-});
-
-// ── STREAM CTA HEADING — parallax scrub
-gsap.to('.stream-cta-heading', {
-  y: -60,
-  ease: 'none',
-  scrollTrigger: { trigger: '.stream-cta-banner', start: 'top bottom', end: 'bottom top', scrub: 1.5 }
-});
-
-// ── CONTACT TITLE — parallax scrub
-gsap.to('#contact .section-title', {
-  y: -40,
-  ease: 'none',
-  scrollTrigger: { trigger: '#contact', start: 'top bottom', end: 'bottom top', scrub: 1.5 }
-});
-
-// ── STEP TITLES — stagger in from left
-gsap.utils.toArray('.step-title').forEach((el, i) => {
-  gsap.set(el, { opacity: 0, x: -40 });
-  gsap.to(el, {
-    opacity: 1, x: 0,
-    duration: 0.85, ease: 'power2.out',
-    delay: i * 0.12,
-    scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
-  });
-});
-
-  } // end initParallax
-  loadGSAP();
-} // end desktop-only block
 </script>
 </body>
 </html>
