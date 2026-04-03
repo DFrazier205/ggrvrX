@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="#0d0710"/>
+  <!-- VR headset shape -->
+  <rect x="4" y="11" width="24" height="13" rx="3" fill="#b45cfd"/>
+  <!-- Lens left -->
+  <rect x="6" y="13.5" width="8" height="8" rx="2" fill="#0d0710"/>
+  <!-- Lens right -->
+  <rect x="18" y="13.5" width="8" height="8" rx="2" fill="#0d0710"/>
+  <!-- Bridge between lenses -->
+  <rect x="14" y="16" width="4" height="2" rx="1" fill="#0d0710"/>
+  <!-- Strap top line -->
+  <rect x="11" y="9" width="10" height="2.5" rx="1.2" fill="#b45cfd"/>
+</svg>
